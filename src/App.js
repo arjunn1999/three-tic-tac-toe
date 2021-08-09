@@ -9,19 +9,23 @@ import './App.css';
 
 const itemArray = new Array(9).fill("empty")
 
-const reloadGame = () =>{
 
-}
-const checkIsWinner = () => {
-
-}
-const changeItem = (itemNumber) => {
-
-}
 const App = () => {
   const  [isCross,setIsCross] = useState(false)
-  const [winMessage,setWinMessage] = useState(false)
-
+  const [winMessage,setWinMessage] = useState("")
+  const reloadGame = () =>{
+  setIsCross(false);
+  setWinMessage("");
+  itemArray.fill("empty",0,9);
+  }
+  const checkIsWinner = () => {
+  
+  }
+  const changeItem = (itemNumber) => {
+  if (winMessage){
+    return toast(winMessage,{type:"success"})
+  }
+  }
   return (
    <Container className="p-5">
      <ToastContainer position='bottom-center'/>
